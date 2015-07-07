@@ -8,11 +8,17 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class NextShowViewController: UIViewController {
 
+    @IBOutlet weak var nextShowDatePicker: UIDatePicker!
+    
+    @IBOutlet weak var datePickerView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.tabBarController?.selectedIndex = 1
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +26,14 @@ class FirstViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+
+    @IBAction func showDatePickerButtonTapped(sender: AnyObject) {
+        datePickerView.hidden = false
+    }
+
+    @IBAction func setTimeButtonTapped(sender: AnyObject) {
+        datePickerView.hidden = true
+    }
 
 }
 

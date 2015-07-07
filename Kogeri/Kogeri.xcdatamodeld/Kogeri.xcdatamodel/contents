@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Ingredient" syncable="YES"/>
+    <entity name="Recipe" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Ingredient" syncable="YES"/>
+    </entity>
+    <entity name="ShowDate" syncable="YES"/>
+    <entity name="Variant" representedClassName="Variant" syncable="YES">
+        <attribute name="flavour" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="VariantImage" inverseName="variant" inverseEntity="VariantImage" syncable="YES"/>
+        <relationship name="recipe" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recipe" syncable="YES"/>
+    </entity>
+    <entity name="VariantImage" syncable="YES">
+        <attribute name="caption" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="variant" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Variant" inverseName="images" inverseEntity="Variant" syncable="YES"/>
+    </entity>
+    <fetchRequest name="FetchRequest" entity="Recipe"/>
+    <elements>
+        <element name="Variant" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="VariantImage" positionX="-63" positionY="0" width="128" height="90"/>
+        <element name="Recipe" positionX="-54" positionY="18" width="128" height="75"/>
+        <element name="ShowDate" positionX="-18" positionY="54" width="128" height="45"/>
+        <element name="Ingredient" positionX="9" positionY="63" width="128" height="45"/>
+    </elements>
+</model>
